@@ -40,18 +40,50 @@ header {
     transition: all 0.4s ease 0s;
 }
 
-.navlinks li a:hover {
-    color: #0088a9;
-    display: inline-block;
-    vertical-align: middle;
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-    transition-duration: 0.3s;
-    transition-property: transform;
+
+
+.navlinks a {
+  padding: .5em .8em;
+  color: rgba(255,255,255,.5);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
 }
 
+.navlinks a::before,
+.navlinks a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
 
+.navlinks a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #25c8ce;
+  border-right: 3px solid #0f9099;
+  transform: translate(-100%, 50%);
+}
 
+.navlinks a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #2E640F;
+  border-left: 3px solid #3E8914;
+  transform: translate(100%, -50%)
+}
 
+.navlinks a:hover:before,
+.navlinks a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.navlinks a:hover {
+  color: #3DA35D;
+}
